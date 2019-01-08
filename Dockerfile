@@ -16,7 +16,9 @@ RUN dotnet restore ./WebApi.Tests/WebApi.Tests.csproj
 
 COPY . .
 
-RUN dotnet test
+ENV TEAMCITY_PROJECT_NAME=fake
+
+RUN dotnet test ./WebApi.Tests/WebApi.Tests.csproj
 
 RUN dotnet publish  ./WebApi/WebApi.csproj -c release -o ../../publish
 
