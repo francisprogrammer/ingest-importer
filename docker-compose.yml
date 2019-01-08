@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  importer:
+    image: local-registry:55000/ingestion:importer
+    build:
+      context: .
+      network: host
+    ports:
+      - 8001:80
